@@ -19,6 +19,7 @@
     "johnny-five": "^0.10.7",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
+    "socket.io": "^1.7.3",
     "style-loader": "^0.16.1",
     "tone": "^0.10.0",
     "webpack": "^2.3.3",
