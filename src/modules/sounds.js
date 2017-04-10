@@ -1,5 +1,9 @@
 import Tone from 'tone';
 
+import piggySnortWav from '../sounds/piggy-snort.wav';
+import ohNoWav from '../sounds/oh-no.wav';
+import blopWav from '../sounds/blop.wav';
+
 export const piggySnort = new Tone.Player({
   'url' : '/sounds/piggy-snort.wav'
 }).toMaster();

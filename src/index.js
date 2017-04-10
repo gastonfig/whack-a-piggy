@@ -5,6 +5,9 @@ import { classes, socketPort, timeoutTimes } from './modules/constants';
 
 const css = require('./styles/main.scss');
 
+import piggySvg from './images/piggy.svg';
+import xSvg from './images/x.svg';
+
 const socket = io.connect(`http://localhost:${socketPort}`);
 
 const body = document.querySelector('body');
