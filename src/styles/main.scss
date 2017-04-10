@@ -1,0 +1,156 @@
+$pink: #f2828c;
+$white: #fff;
+body {
+  background: rgba($pink, 0.3);
+  &.wrong {
+    background: rgba(red, 0.7);
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Circles
+.circleContainer {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+$circleRadius: 20vw;
+.circleItem {
+  background: $white;
+  border: 10px solid;
+  border-radius: 100%;
+  display: flex;
+  height: $circleRadius;
+  min-height: $circleRadius;
+  width: $circleRadius;
+  .correct &,
+  .wrong & {
+    &:not(.correct):not(.wrong) {
+      opacity: 0.1;
+    }
+  }
+  &:after {
+    content: '';
+    height: 100%;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    width: 100%;
+  }
+  &.selected {
+    animation: piggy .5s cubic-bezier(0.140, -0.310, 0.355, 1.650);
+    z-index: 2;
+    &:after {
+      background: url('/images/piggy.svg') no-repeat center;
+      background-size: 70%;
+      opacity: 1;
+      animation: piggy-rotate 200ms 3 ease-in-out;
+    }
+  }
+  &:nth-child(2) {
+    background: rgba(orange, 0.15);
+    border-color: orange;
+    &.correct {
+      background: rgba(orange, 0.55);
+    }
+  }
+  &:nth-child(3) {
+    background: rgba(purple, 0.15);
+    border-color: purple;
+    &.correct {
+      background: rgba(purple, 0.55);
+    }
+  }
+  &:nth-child(1) {
+    background: rgba(crimson, 0.15);
+    border-color: crimson;
+    &.correct {
+      background: rgba(crimson, 0.55);
+    }
+  }
+  &:nth-child(4) {
+    background: rgba(darkblue, 0.15);
+    border-color: darkblue;
+    &.correct {
+      background: rgba(darkblue, 0.55);
+    }
+  }
+  &.correct {
+    animation: correct-circle .5s cubic-bezier(0.140, -0.310, 0.355, 1.650);
+    z-index: 2;
+    &:after {
+      animation: correct-piggy .5s cubic-bezier(0.140, -0.310, 0.355, 1.650);
+    }
+  }
+  &.wrong {
+    animation: piggy-wrong 160ms 3 cubic-bezier(0.140, -0.310, 0.355, 1.650);
+    background: rgba($white, 0.55);
+    z-index: 2;
+    &:after {
+      background: url('/images/x.svg') no-repeat center;
+      background-size: 50%;
+      opacity: 1;
+    }
+  }
+}
+
+// Animation
+@keyframes piggy {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes correct-piggy {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(.9);
+  }
+}
+
+@keyframes correct-circle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes piggy-rotate {
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes piggy-wrong {
+  25% {
+    transform: translateX(-7px);
+  }
+  75% {
+    transform: translateX(7px);
+  }
+}
