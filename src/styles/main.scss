@@ -53,28 +53,28 @@ $circleRadius: 20vw;
       animation: piggy-rotate 200ms 3 ease-in-out;
     }
   }
-  &:nth-child(2) {
+  &.orange {
     background: rgba(orange, 0.15);
     border-color: orange;
     &.correct {
       background: rgba(orange, 0.55);
     }
   }
-  &:nth-child(3) {
+  &.purple {
     background: rgba(purple, 0.15);
     border-color: purple;
     &.correct {
       background: rgba(purple, 0.55);
     }
   }
-  &:nth-child(1) {
+  &.crimson {
     background: rgba(crimson, 0.15);
     border-color: crimson;
     &.correct {
       background: rgba(crimson, 0.55);
     }
   }
-  &:nth-child(4) {
+  &.darkblue {
     background: rgba(darkblue, 0.15);
     border-color: darkblue;
     &.correct {

@@ -13,6 +13,12 @@ const socket = io.connect(`http://localhost:${socketPort}`);
 const body = document.querySelector('body');
 const circles = document.querySelectorAll('.circleItem');
 const circlesList = Array.from(circles);
+const circlesMap = [
+  { index: 0, color: 'orange'},
+  { index: 1, color: 'purple'},
+  { index: 2, color: 'crimson'},
+  { index: 3, color: 'darkblue'},
+];
 
 let isRunning = false;
 let randomCircle = null;
@@ -83,18 +89,22 @@ const hitAction = (index, isCorrect) => {
 }
 
 const onHit = (i) => {
+  const index = circlesMap[i].index;
+
+  console.log(index)
+
   if (isRunning) { return; };
 
   let isHitCorrect = null;
 
   isRunning = true;
 
-  if (i === randomCircle) {
+  if (index === randomCircle) {
     isHitCorrect = true;
-    hitAction(i, true);
+    hitAction(index, true);
   } else {
     isHitCorrect = false;
-    hitAction(i, false);
+    hitAction(index, false);
   }
 
   clearTimeout(timeouts.onHitTimeout);
@@ -112,6 +122,9 @@ socket.on('knock', function (data) {
 });
 
 circlesList.map((circle, i) => {
+  const circleClass = circlesMap[i].color;
+
+  circle.classList.add(circleClass);
   circle.addEventListener('click', () => {
     buttonClick(i);
   });
